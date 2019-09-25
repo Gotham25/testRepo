@@ -1,0 +1,28 @@
+<phpunit colors="true" verbose="true" backupGlobals="true" bootstrap="tests/bootstrap.php">
+
+	<filter>
+		<whitelist processUncoveredFilesFromWhitelist="true">
+			<directory>src/</directory>
+			<exclude>
+				<directory>src/hitchLibrary</directory>
+				<directory>src/model</directory>
+				<file>src/ClassLoader.php</file>
+			</exclude>
+		</whitelist>
+	</filter>
+	
+	<testsuites>
+		<testsuite name="Unit Test">
+			<directory>tests/</directory>
+		</testsuite>
+	</testsuites>
+	
+	<logging>
+        <log type="coverage-html" target="build/logs/html/"/>
+		<log type="coverage-xml" target="build/logs/code_coverage.xml/"/>
+		<log type="coverage-text" target="build/logs/code_coverage.txt"/>
+        <log type="coverage-clover" target="build/logs/clover.xml"/>
+		<log type="coverage-crap4j" target="build/logs/code_coverage_crap4j.xml"/>
+    </logging>
+	
+</phpunit>
