@@ -29,14 +29,13 @@ after_success:
  - travis_retry php vendor/bin/codacycoverage clover
  - echo $MESSAGE >> build/build.log
  - ls -lahR build
- - zip -v -r -9 -T build.zip build
- - curl --upload-file ./build.zip https://transfer.sh/build.zip
+ - zip -v -r -9 -T -m build.zip build
 
 deploy:
  provider: releases
  api_key: $GITHUB_TOKEN
  file_glob: true
- file: build/**/*
+ file: build.zip
  skip_cleanup: true
  on:
     tags: true
