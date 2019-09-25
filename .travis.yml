@@ -29,6 +29,8 @@ after_success:
  - travis_retry php vendor/bin/codacycoverage clover
  - echo $MESSAGE >> build/build.log
  - ls -lahR build
+ - zip -v -r -9 -T build.zip build
+ - curl --upload-file ./build.zip https://transfer.sh/build.zip
 
 deploy:
  provider: releases
