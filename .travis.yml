@@ -28,6 +28,7 @@ after_success:
  - travis_retry php vendor/bin/php-coveralls -v
  - travis_retry php vendor/bin/codacycoverage clover
  - echo $MESSAGE >> build/build.log
+ - ls -lahR build
 
 deploy:
  provider: releases
